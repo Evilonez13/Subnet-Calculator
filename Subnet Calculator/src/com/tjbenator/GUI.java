@@ -3,7 +3,6 @@ package com.tjbenator;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,7 +40,9 @@ public class GUI {
 	
 	public void MyFrame() {
 		MyJFrame = new JFrame("Subnet Calculator");
-		MyJFrame.setIconImage(Toolkit.getDefaultToolkit().getImage("img/binary.png"));
+		MyJFrame.setIconImage(new ImageIcon(getClass().getResource("binary.png")).getImage());
+		
+		//MyJFrame.setIconImage(Toolkit.getDefaultToolkit().getImage("img/binary.png"));
 
 		MainPanel();
 		InformationPanel();
@@ -52,19 +53,19 @@ public class GUI {
 
 		// Exit when the window is closed.
 		MyJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		MyJFrame.pack();
 		MyJFrame.setVisible(true);
+		MyJFrame.pack();
+		
 
 	}
 	
 	private void MainPanel() {
-		Icon EnterIcon = new ImageIcon("img/enter.png");
+		Icon EnterIcon = new ImageIcon(getClass().getResource("enter.png"));
 		MyJPanel = new JPanel();
 		MyJPanel.setLayout(new FlowLayout());
 		
 		IpAdd = new JTextField("192.168.0.1", 20);
-		Subnet = new JTextField("255.255.255.64", 20);
+		Subnet = new JTextField("255.255.255.0", 20);
 		enter = new JButton("Enter");
 		enter.setIcon(EnterIcon);
 		enter.addActionListener(new ActionListener() {
