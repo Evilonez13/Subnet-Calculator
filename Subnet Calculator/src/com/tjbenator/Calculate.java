@@ -1,7 +1,7 @@
 package com.tjbenator;
 
 public class Calculate {
-	
+
 	// Input IP Address and Subnet Mask
 	// IP Address
 	private int a = 192;
@@ -77,8 +77,7 @@ public class Calculate {
 		sb = (int) Math.abs(Double.parseDouble(oct[1]));
 		sc = (int) Math.abs(Double.parseDouble(oct[2]));
 		sd = (int) Math.abs(Double.parseDouble(oct[3]));
-		
-		
+
 		if (sa < 128 && sa != 0) {
 			sa = 0;
 			Message = "That isn't a valid subnet!";
@@ -118,6 +117,16 @@ public class Calculate {
 		return la + "." + lb + "." + lc + "." + ld;
 	}
 
+	public int getNumberOfHosts() {
+		int hosts;
+		hosts = (wa > 0) ? (wa + 1) : 1;
+		hosts *= (wb > 0) ? (wb + 1) : 1;
+		hosts *= (wc > 0) ? (wc + 1) : 1;
+		hosts *= (wd > 0) ? (wd + 1) : 1;
+		hosts -= 2;
+		return hosts;
+	}
+
 	public String getBroadcast() {
 		return ba + "." + bb + "." + bc + "." + bd;
 	}
@@ -129,7 +138,7 @@ public class Calculate {
 	public String getSubnet() {
 		return sa + "." + sb + "." + sc + "." + sd;
 	}
-	
+
 	public String getNetwork() {
 		return na + "." + nb + "." + nc + "." + nd;
 	}
@@ -137,7 +146,7 @@ public class Calculate {
 	public void clearMessage() {
 		Message = "";
 	}
-	
+
 	public String getMessage() {
 		return Message;
 	}

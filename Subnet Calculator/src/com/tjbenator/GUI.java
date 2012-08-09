@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -34,6 +35,8 @@ public class GUI {
 	protected JLabel FirstIpAdd;
 	protected JLabel LastIpAddLabel;
 	protected JLabel LastIpAdd;
+	protected JLabel NumberOfHostsLabel;
+	protected JLabel NumberOfHosts;
 	protected JLabel WildCardLabel;
 	protected JLabel WildCard;
 	
@@ -86,8 +89,9 @@ public class GUI {
 					BroadcastAdd.setText(Cal.getBroadcast());
 					FirstIpAdd.setText(Cal.getFirstadd());
 					LastIpAdd.setText(Cal.getLastadd());
+					NumberOfHosts.setText(Cal.getNumberOfHosts() + "");
 					WildCard.setText(Cal.getWildcard());
-				}			
+				}
 				
 			}
 		});
@@ -95,15 +99,16 @@ public class GUI {
 		MyJPanel.add(Subnet);
 		MyJPanel.add(enter);
 	}
-	
+
 	private void InformationPanel() {
 		MyInformation = new JPanel();
-		MyInformation.setLayout(new GridLayout(6, 2));
-		
+		MyInformation.setLayout(new GridLayout(7, 2));
+		MyInformation.setBorder(BorderFactory.createTitledBorder("Results"));
 		MessageLabel = new JLabel("Message:");
 		NetworkLabel = new JLabel("Network:");
 		FirstIpAddLabel = new JLabel("First IP:");
 		LastIpAddLabel = new JLabel("Last IP:");
+		NumberOfHostsLabel = new JLabel("Number Of Hosts: ");
 		BroadcastAddLabel = new JLabel("Broadcast Address:");
 		WildCardLabel = new JLabel("Wildcard:");
 		
@@ -111,6 +116,7 @@ public class GUI {
 		Network = new JLabel("");
 		FirstIpAdd = new JLabel("");
 		LastIpAdd = new JLabel("");
+		NumberOfHosts = new JLabel("");
 		BroadcastAdd = new JLabel("");
 		WildCard = new JLabel("");
 		
@@ -126,11 +132,14 @@ public class GUI {
 		MyInformation.add(LastIpAddLabel);
 		MyInformation.add(LastIpAdd);
 		
+		MyInformation.add(NumberOfHostsLabel);
+		MyInformation.add(NumberOfHosts);
+		
 		MyInformation.add(BroadcastAddLabel);
 		MyInformation.add(BroadcastAdd);
 		
 		MyInformation.add(WildCardLabel);
 		MyInformation.add(WildCard);
 	}
-	
+
 }
